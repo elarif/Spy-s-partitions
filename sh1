@@ -1,0 +1,23 @@
+#! /bin/sh
+
+#Par défaut,notre programme ne surveillera que 3 partitions au maximum
+
+log=/var/Log
+if [ $# -eq 0 ]
+then 
+	echo "Entrez au moins un paramatre"
+	exit 1
+fi
+
+if [[ $# -eq 2 || $# -eq 1]] 
+then
+   	df $*
+
+	touch log
+	date > log
+	
+
+
+
+fi
+

@@ -1,0 +1,28 @@
+#! /bin/sh
+
+
+if [ $1 == '-t' ];then
+	rm /var/Log
+	touch /var/Log
+	date > Log
+fi
+
+condition=0
+while($condition -eq 0)
+do
+	clear
+	echo "Que voulez-vous faire?\n1-Afficher le contenu du fichier log\n2-Vérifier si le service est actif ou non"
+	read valeur
+	if valeur -eq 1;then
+		test -e /var/Log
+		if $? == 1;then
+			echo "Le fichier n'existe pas."
+			return
+		elif $? -eq 0
+			condition=1
+			less /var/Log
+		fi
+	fi
+	if valeur -eq 2;then
+	fi
+done
